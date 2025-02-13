@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bor0ksnxfsg50"]
+
+[ext_resource type="PackedScene" uid="uid://dbusdqd8xo3hf" path="res://scenes/stage/stage.tscn" id="1_kwgin"]
+[ext_resource type="Script" path="res://world.gd" id="1_qpfv8"]
+[ext_resource type="PackedScene" uid="uid://bnnbcl7agjd02" path="res://scenes/characters/player.tscn" id="2_vsxm3"]
+[ext_resource type="Script" path="res://scenes/stage/actors_container.gd" id="3_wmx0y"]
+[ext_resource type="PackedScene" uid="uid://dgynws4qj1rwx" path="res://scenes/props/barrel.tscn" id="4_7n7o7"]
+[ext_resource type="PackedScene" uid="uid://bustgmkksf1d" path="res://scenes/characters/basic_enemy.tscn" id="5_3bao0"]
+[ext_resource type="PackedScene" uid="uid://l50ov1fyrnh5" path="res://scenes/props/knife.tscn" id="6_a265w"]
+[ext_resource type="PackedScene" uid="uid://dbvp6nic46go" path="res://scenes/characters/goon_enemy.tscn" id="7_rppvx"]
+[ext_resource type="PackedScene" uid="uid://os73xlgl2ps3" path="res://scenes/props/shot.tscn" id="9_u2xej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqya7"]
+size = Vector2(6, 64)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_qpfv8")
+
+[node name="Stage" parent="." instance=ExtResource("1_kwgin")]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(50, 32)
+
+[node name="InvisibleWalls" type="Node2D" parent="Camera"]
+position = Vector2(-50, -32)
+
+[node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls"]
+position = Vector2(0, 32)
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall"]
+shape = SubResource("RectangleShape2D_pqya7")
+
+[node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls"]
+position = Vector2(100, 32)
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall"]
+shape = SubResource("RectangleShape2D_pqya7")
+
+[node name="ActorsContainer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("3_wmx0y")
+
+[node name="Player" parent="ActorsContainer" instance=ExtResource("2_vsxm3")]
+position = Vector2(60, 40)
+has_gun = true
+
+[node name="Barrel" parent="ActorsContainer" instance=ExtResource("4_7n7o7")]
+position = Vector2(85, 45)
+
+[node name="BasicEnemy" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_3bao0")]
+position = Vector2(47, 60)
+player = NodePath("../Player")
+damage = 5
+
+[node name="Knife" parent="ActorsContainer" instance=ExtResource("6_a265w")]
+position = Vector2(27, 47)
+
+[node name="GoonEnemy" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("7_rppvx")]
+position = Vector2(89, 54)
+player = NodePath("../Player")
+can_respawn_knives = false
+damage_gunshot = 0
+has_gun = true
+has_knife = false
+
+[node name="Shot" parent="ActorsContainer" instance=ExtResource("9_u2xej")]
+position = Vector2(50, 46)
+points = PackedVector2Array(0, -14, 100, -14)
+duration_shot_across_screen = 200.0

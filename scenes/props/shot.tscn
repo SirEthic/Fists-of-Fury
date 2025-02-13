@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://os73xlgl2ps3"]
+
+[ext_resource type="Script" path="res://scenes/props/shot.gd" id="1_yb6x1"]
+
+[sub_resource type="Gradient" id="Gradient_0rqe5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
+
+[node name="Shot" type="Line2D"]
+width = 1.0
+gradient = SubResource("Gradient_0rqe5")
+script = ExtResource("1_yb6x1")
