@@ -3,6 +3,7 @@ extends Area2D
 
 const GRAVITY := 600.0
 
+@export var auto_destroy : bool
 @export var current_type : type
 @export var damage : int
 @export var knockdown_intensity : float
@@ -49,13 +50,19 @@ func _process(delta: float) -> void:
 	collectible_sprite.flip_h = velocity.x < 0
 	collectible_sprite.position = Vector2.UP * height
 	position += velocity * delta
+	monitorable = current_state == state.GROUNDED
+	damage_emitter.monitoring = current_state == state.FLY
 	
 func handle_fall(delta: float) -> void:
 	if current_state == state.FALL:
 		height += height_speed * delta
+		if auto_destroy:
+			modulate.a -= delta
 		if height < 0:
 			height = 0
 			current_state = state.GROUNDED
+			if auto_destroy:
+				queue_free()
 		else:
 			height_speed -= GRAVITY * delta
 

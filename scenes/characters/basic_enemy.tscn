@@ -718,13 +718,13 @@ duration_between_range_attacks = 4000
 duration_prep_melee_attack = 500
 duration_prep_range_attack = 500
 damage = 2
-damage_gunshot = 5
+max_health = 20
 duration_grounded = 1000.0
 flight_speed = 100.0
 knockback_intensity = 15.0
 knockdown_intensity = 70.0
-max_health = 20
-speed = 25.0
+speed = 20.0
+damage_gunshot = 5
 
 [node name="CharacterSprite" parent="." index="1"]
 texture = ExtResource("2_bqgks")
@@ -786,12 +786,14 @@ vframes = 10
 frame = 8
 
 [node name="ProjectileAim" parent="." index="9"]
+position = Vector2(0, -2)
 collision_mask = 2
 
 [node name="CollectibleSensor" parent="." index="10"]
 collision_mask = 256
 
 [node name="CollisionShape2D" parent="CollectibleSensor" index="0"]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_n5nw4")
 
 [editable path="DamageEmitter"]

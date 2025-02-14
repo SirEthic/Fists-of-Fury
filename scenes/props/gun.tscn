@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwps5cavfsmlt"]
+
+[ext_resource type="PackedScene" uid="uid://ddp3jpk1jjvsv" path="res://scenes/props/collectible.tscn" id="1_heun5"]
+[ext_resource type="Texture2D" uid="uid://dj8s5hhgxno5t" path="res://assets/art/props/gun.png" id="2_5pv3b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3bpp"]
+
+[sub_resource type="Animation" id="Animation_abybd"]
+resource_name = "Fall"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -1.5708, -3.14159, -4.71239]
+}
+
+[sub_resource type="Animation" id="Animation_egd15"]
+resource_name = "Fly"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.5708, 3.14159, 4.71239]
+}
+
+[sub_resource type="Animation" id="Animation_ci66g"]
+resource_name = "Grounded"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rerkp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g7rsp"]
+_data = {
+"Fall": SubResource("Animation_abybd"),
+"Fly": SubResource("Animation_egd15"),
+"Grounded": SubResource("Animation_ci66g"),
+"RESET": SubResource("Animation_rerkp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lv2r"]
+size = Vector2(3, 3)
+
+[node name="Gun" instance=ExtResource("1_heun5")]
+current_type = 1
+damage = 3
+knockdown_intensity = 200.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_g3bpp")
+
+[node name="CollectibleSprite" parent="." index="1"]
+texture = ExtResource("2_5pv3b")
+centered = false
+offset = Vector2(-8, -8)
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_g7rsp")
+}
+autoplay = "Fall"
+
+[node name="DamageEmitter" parent="." index="4"]
+collision_mask = 176
+
+[node name="CollisionShape2D" parent="DamageEmitter" index="0"]
+shape = SubResource("RectangleShape2D_8lv2r")
+
+[editable path="DamageEmitter"]

@@ -28,9 +28,9 @@ func handle_input() -> void:
 
 func goto_range_position() -> void:
 	var camera := get_viewport().get_camera_2d()
-	var screem_width := get_viewport_rect().size.x
-	var screen_left_edge := camera.position.x - screem_width / 2
-	var screen_right_edge := camera.position.x + screem_width / 2
+	var screen_width := get_viewport_rect().size.x
+	var screen_left_edge := camera.position.x - screen_width / 2
+	var screen_right_edge := camera.position.x + screen_width / 2
 	
 	var left_destination := Vector2(screen_left_edge + EDGE_SCREEN_BUFFER, player.position.y)
 	var right_destination := Vector2(screen_right_edge - EDGE_SCREEN_BUFFER, player.position.y)
@@ -45,7 +45,7 @@ func goto_range_position() -> void:
 		velocity = Vector2.ZERO
 	else:
 		velocity = (closest_destination - position).normalized() * speed
-	
+		
 	if can_range_attack() and has_knife and projectile_aim.is_colliding():
 		current_state = state.THROW
 		time_since_knife_dismiss = Time.get_ticks_msec()

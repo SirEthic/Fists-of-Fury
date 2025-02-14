@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://6t7wpy85fhfs" path="res://assets/art/characters/enemy_goon.png" id="2_xakyd"]
 
 [node name="GoonEnemy" instance=ExtResource("1_rrf4a")]
-can_respawn_knives = true
-duration_grounded = 700.0
-duration_between_knife_respawn = 1000
-flight_speed = 120.0
-has_knife = true
-knockdown_intensity = 80.0
 max_health = 18
-speed = 28.0
+duration_grounded = 700.0
+flight_speed = 120.0
+knockdown_intensity = 80.0
+speed = 25.0
+can_respawn_knives = true
+duration_between_knife_respawn = 1000
+has_knife = true
 
 [node name="CharacterSprite" parent="." index="1"]
 texture = ExtResource("2_xakyd")
