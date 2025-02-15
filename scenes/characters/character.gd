@@ -37,7 +37,7 @@ const  GRAVITY := 600.0
 @onready var projectile_aim: RayCast2D = $ProjectileAim
 @onready var weapon_position: Node2D = $KnifeSprite/WeaponPosition
 
-enum state{IDLE , WALK, ATTACK, TAKEOFF, JUMP, LAND, JUMPKICK, HURT, FALL, GROUNDED, DEATH, FLY, PREP_ATTACK, THROW, PICKUP, SHOOT, PREP_SHOOT}
+enum state{IDLE , WALK, ATTACK, TAKEOFF, JUMP, LAND, JUMPKICK, HURT, FALL, GROUNDED, DEATH, FLY, PREP_ATTACK, THROW, PICKUP, SHOOT, PREP_SHOOT, RECOVER}
 
 var ammo_left := 0
 
@@ -59,6 +59,7 @@ var anim_map : Dictionary= {
 	state.PICKUP : "Pickup",
 	state.SHOOT : "Shoot",
 	state.PREP_SHOOT : "Idle",
+	state.RECOVER : "Recover",
 }
 
 var attack_combo_index := 0
@@ -104,6 +105,7 @@ func _process(delta: float) -> void:
 	collision_shape.disabled = is_collision_disabled()
 	damage_emitter.monitoring = is_attacking()
 	damage_receiver.monitorable = can_get_hurt()
+	collateral_damage_emitter.monitoring = current_state == state.FLY
 	move_and_slide()
 
 func handle_movement() -> void:
@@ -189,7 +191,7 @@ func can_jumpkick() -> bool:
 	return current_state == state.JUMP
 
 func can_get_hurt() -> bool:
-	return [state.IDLE, state.PREP_ATTACK, state.ATTACK, state.WALK, state.TAKEOFF, state.LAND].has(current_state)
+	return [state.IDLE, state.SHOOT, state.PREP_SHOOT, state.PREP_ATTACK, state.ATTACK, state.WALK, state.TAKEOFF, state.LAND].has(current_state)
 
 func is_attacking() -> bool:
 	return [state.ATTACK, state.JUMPKICK].has(current_state)

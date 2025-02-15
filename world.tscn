@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bor0ksnxfsg50"]
+[gd_scene load_steps=7 format=3 uid="uid://bor0ksnxfsg50"]
 
 [ext_resource type="PackedScene" uid="uid://dbusdqd8xo3hf" path="res://scenes/stage/stage.tscn" id="1_kwgin"]
 [ext_resource type="Script" path="res://world.gd" id="1_qpfv8"]
 [ext_resource type="PackedScene" uid="uid://bnnbcl7agjd02" path="res://scenes/characters/player.tscn" id="2_vsxm3"]
 [ext_resource type="Script" path="res://scenes/stage/actors_container.gd" id="3_wmx0y"]
-[ext_resource type="PackedScene" uid="uid://dgynws4qj1rwx" path="res://scenes/props/barrel.tscn" id="4_7n7o7"]
-[ext_resource type="PackedScene" uid="uid://bustgmkksf1d" path="res://scenes/characters/basic_enemy.tscn" id="5_3bao0"]
-[ext_resource type="PackedScene" uid="uid://dbvp6nic46go" path="res://scenes/characters/goon_enemy.tscn" id="7_rppvx"]
-[ext_resource type="PackedScene" uid="uid://dwret1dcy84lg" path="res://scenes/characters/thug_enemy.tscn" id="8_p2g47"]
+[ext_resource type="PackedScene" uid="uid://b8ox3ointco4q" path="res://scenes/characters/igor_boss.tscn" id="5_dbr7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqya7"]
 size = Vector2(6, 64)
@@ -47,20 +44,8 @@ script = ExtResource("3_wmx0y")
 
 [node name="Player" parent="ActorsContainer" instance=ExtResource("2_vsxm3")]
 position = Vector2(60, 40)
-damage = 4
+has_knife = true
 
-[node name="Barrel" parent="ActorsContainer" instance=ExtResource("4_7n7o7")]
-position = Vector2(85, 45)
-content_type = 2
-
-[node name="BasicEnemy" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_3bao0")]
-position = Vector2(67, 57)
-player = NodePath("../Player")
-
-[node name="GoonEnemy" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("7_rppvx")]
-position = Vector2(91, 51)
-player = NodePath("../Player")
-
-[node name="ThugEnemy" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("8_p2g47")]
-position = Vector2(16, 56)
+[node name="IgorBoss" parent="ActorsContainer" node_paths=PackedStringArray("player") instance=ExtResource("5_dbr7e")]
+position = Vector2(140, 60)
 player = NodePath("../Player")

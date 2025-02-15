@@ -909,7 +909,7 @@ collision_mask = 137
 script = ExtResource("2_a8x45")
 max_duration_between_hits = 2000
 can_respawn = true
-damage = 4
+damage = 3
 max_health = 30
 duration_grounded = 500.0
 jump_intensity = 150.0
@@ -989,7 +989,6 @@ vframes = 10
 frame = 8
 
 [node name="ProjectileAim" parent="." index="10"]
-position = Vector2(0, -2)
 collision_mask = 12
 
 [node name="CollectibleSensor" parent="." index="11"]
