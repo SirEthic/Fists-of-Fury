@@ -7,6 +7,9 @@ const  GRAVITY := 600.0
 @export var can_respawn : bool
 @export var damage : int
 @export var max_health : int
+@export var type : Type
+
+
 @export_group("Movement")
 @export var duration_grounded : float
 @export var flight_speed : float
@@ -14,8 +17,8 @@ const  GRAVITY := 600.0
 @export var knockback_intensity : float
 @export var knockdown_intensity : float
 @export var speed : float
-@export_group("Weapons")
 
+@export_group("Weapons")
 @export var auto_destroy_on_drop : bool
 @export var can_respawn_knives : bool
 @export var damage_gunshot : int
@@ -38,6 +41,7 @@ const  GRAVITY := 600.0
 @onready var weapon_position: Node2D = $KnifeSprite/WeaponPosition
 
 enum state{IDLE , WALK, ATTACK, TAKEOFF, JUMP, LAND, JUMPKICK, HURT, FALL, GROUNDED, DEATH, FLY, PREP_ATTACK, THROW, PICKUP, SHOOT, PREP_SHOOT, RECOVER}
+enum Type{PLAYER, PUNK, GOON, THUG, BOUNCER}
 
 var ammo_left := 0
 

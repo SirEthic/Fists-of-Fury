@@ -18,6 +18,7 @@ config/icon="res://assets/Icon.png"
 [autoload]
 
 EntityManager="*res://utils/entity_manager.gd"
+StageManager="*res://utils/stage_manager.gd"
 
 [debug]
 
