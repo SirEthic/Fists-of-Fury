@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6t7wpy85fhfs" path="res://assets/art/characters/enemy_goon.png" id="2_xakyd"]
 
 [node name="GoonEnemy" instance=ExtResource("1_rrf4a")]
+duration_appear = 0.0
 max_health = 18
 type = 2
 duration_grounded = 700.0

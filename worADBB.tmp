@@ -23,7 +23,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 script = ExtResource("4_d44ci")
 duration_shake = 50
-shake_intensity = 1
+duration_intensity = 1.0
 
 [node name="InvisibleWalls" type="Node2D" parent="Camera"]
 position = Vector2(-50, -32)

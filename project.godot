@@ -19,6 +19,10 @@ config/icon="res://assets/Icon.png"
 
 EntityManager="*res://utils/entity_manager.gd"
 StageManager="*res://utils/stage_manager.gd"
+DamageManager="*res://utils/damage_manager.gd"
+ComboManager="*res://utils/combo_manager.gd"
+MusicPlayer="*res://utils/music_player.tscn"
+SoundPlayer="*res://utils/sound_player.tscn"
 
 [debug]
 
@@ -29,8 +33,8 @@ gdscript/warnings/unused_signal=0
 window/size/viewport_width=100
 window/size/viewport_height=64
 window/size/mode=3
-window/size/window_width_override=1750
-window/size/window_height_override=1120
+window/size/window_width_override=2560
+window/size/window_height_override=1600
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 

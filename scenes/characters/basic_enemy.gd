@@ -3,6 +3,7 @@ extends Character
 
 const EDGE_SCREEN_BUFFER := 10
 
+@export var duration_appear : float
 @export var duration_between_melee_attacks : int
 @export var duration_between_range_attacks : int
 @export var duration_prep_melee_attack : int
@@ -15,10 +16,25 @@ var time_since_last_melee_attack := Time.get_ticks_msec()
 var time_since_last_range_attack := Time.get_ticks_msec()
 var time_since_prep_melee_attack := Time.get_ticks_msec()
 var time_since_prep_range_attack := Time.get_ticks_msec()
+var time_since_start_appearing := Time.get_ticks_msec()
 
 func _ready() -> void:
 	super._ready()
 	anim_attacks = ["Punch", "Punch_Alt"]
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	process_appear()
+
+func process_appear() -> void:
+	if current_state == state.APPEARING:
+		var progress := (Time.get_ticks_msec() - time_since_start_appearing) / duration_appear
+		if progress < 1:
+			modulate.a = progress
+		else:
+			modulate.a = 1
+			current_state = state.IDLE
+			
 
 func handle_input() -> void:
 	if player != null and can_move():
@@ -67,6 +83,11 @@ func assign_door(door: Door) -> void:
 		current_state = state.WAIT
 		door.open()
 		door.opened.connect(on_action_complete.bind())
+	else:
+		current_state = state.APPEARING
+		modulate.a = 0
+		time_since_start_appearing = Time.get_ticks_msec()
+		
 
 func goto_melee_position() -> void:
 	if can_pickup_collectible():
@@ -117,6 +138,9 @@ func set_heading() -> void:
 
 func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver.HitType ) -> void:
 	super.on_receive_damage(amount, direction, hit_type)
+	ComboManager.register_hit.emit()
+	if current_health == 0 or hit_type == DamageReceiver.HitType.POWER:
+		EntityManager.spawn_spark.emit(position)
 	if current_health == 0:
 		player.free_slot(self)
 		EntityManager.death_enemy.emit(self)

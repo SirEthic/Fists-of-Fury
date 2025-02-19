@@ -40,7 +40,7 @@ const  GRAVITY := 600.0
 @onready var projectile_aim: RayCast2D = $ProjectileAim
 @onready var weapon_position: Node2D = $KnifeSprite/WeaponPosition
 
-enum state{IDLE , WALK, ATTACK, TAKEOFF, JUMP, LAND, JUMPKICK, HURT, FALL, GROUNDED, DEATH, FLY, PREP_ATTACK, THROW, PICKUP, SHOOT, PREP_SHOOT, RECOVER, DROP, WAIT}
+enum state{IDLE , WALK, ATTACK, TAKEOFF, JUMP, LAND, JUMPKICK, HURT, FALL, GROUNDED, DEATH, FLY, PREP_ATTACK, THROW, PICKUP, SHOOT, PREP_SHOOT, RECOVER, DROP, WAIT, APPEARING}
 enum Type{PLAYER, PUNK, GOON, THUG, BOUNCER}
 
 var ammo_left := 0
@@ -66,6 +66,7 @@ var anim_map : Dictionary= {
 	state.RECOVER : "Recover",
 	state.DROP : "Idle",
 	state.WAIT : "Idle",
+	state.APPEARING : "Idle",
 }
 
 var attack_combo_index := 0
@@ -89,7 +90,7 @@ func _ready() -> void:
 	damage_receiver.damage_received.connect(on_receive_damage.bind())
 	collateral_damage_emitter.area_entered.connect(on_emit_collateral_damage.bind())
 	collateral_damage_emitter.body_entered.connect(on_wall_hit.bind())
-	current_health = max_health
+	set_health(max_health, type == Character.Type.PLAYER) 
 	set_sprite_height_position()
 
 func _process(delta: float) -> void:
@@ -240,6 +241,8 @@ func shoot_gun() -> void:
 	if target != null:
 		target_point = projectile_aim.get_collision_point()
 		target.on_receive_damage(damage_gunshot, heading, DamageReceiver.HitType.KNOCKDOWN)
+		EntityManager.spawn_spark.emit(target.position)
+	SoundPlayer.play(SoundManager.Sound.GUNSHOT)
 	var weapon_root_position := Vector2(weapon_position.global_position.x, position.y)
 	var weapon_height := -weapon_position.position.y 
 	var distance := target_point.x - weapon_position.global_position.x
@@ -252,11 +255,14 @@ func pickup_collectible() -> void:
 		var collectible : Collectible = collectible_areas[0]
 		if collectible.current_type == Collectible.type.KNIFE and not has_knife:
 			has_knife = true
+			SoundPlayer.play(SoundManager.Sound.SWOOSH)
 		if collectible.current_type == Collectible.type.GUN and not has_gun:
 			has_gun = true
 			ammo_left = max_ammo_per_gun
+			SoundPlayer.play(SoundManager.Sound.SWOOSH)
 		if collectible.current_type == Collectible.type.FOOD:
-			current_health = max_health
+			set_health(max_health)
+			SoundPlayer.play(SoundManager.Sound.FOOD)
 		collectible.queue_free()
 
 func is_collision_disabled() -> bool:
@@ -273,6 +279,7 @@ func on_throw_complete() -> void:
 		has_gun = false
 	else:
 		has_knife = false
+	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	var collectible_global_position := Vector2(weapon_position.global_position.x, global_position.y)
 	var collectible_height := -weapon_position.position.y
 	EntityManager.spawn_collectible.emit(collectible_type, Collectible.state.FLY, collectible_global_position, heading, collectible_height, false)
@@ -280,6 +287,7 @@ func on_throw_complete() -> void:
 func on_takeoff_complete() -> void:
 	current_state = state.JUMP
 	height_speed = jump_intensity
+	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 
 func on_pickup_complete() -> void:
 	current_state = state.IDLE
@@ -302,21 +310,25 @@ func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver
 			has_gun = false
 			EntityManager.spawn_collectible.emit(Collectible.type.GUN, Collectible.state.FALL, global_position, Vector2.ZERO, 0.0, auto_destroy_on_drop)
 			
-			
-		current_health = clamp(current_health - amount, 0, max_health)
+		set_health(current_health - amount)
+		SoundPlayer.play(SoundManager.Sound.HIT2, true)
 		if current_health == 0 or hit_type == DamageReceiver.HitType.KNOCKDOWN:
 			current_state = state.FALL
 			height_speed = knockdown_intensity
 			velocity = direction * knockback_intensity
+			DamageManager.heavy_blow_received.emit()
 		elif hit_type == DamageReceiver.HitType.POWER:
 			current_state = state.FLY
 			velocity = direction * flight_speed
+			DamageManager.heavy_blow_received.emit()
 		else:
 			current_state = state.HURT
 			velocity = direction * knockback_intensity
 		
 
 func on_emit_damage(receiver : DamageReceiver) -> void:
+	if is_last_hit_successful and current_state != state.JUMPKICK:
+		return
 	var hit_type := DamageReceiver.HitType.NORMAL
 	var direction := Vector2.LEFT if receiver.global_position.x < global_position.x else Vector2.RIGHT
 	var current_damage = damage
@@ -327,8 +339,8 @@ func on_emit_damage(receiver : DamageReceiver) -> void:
 		hit_type = DamageReceiver.HitType.POWER
 		current_damage = damage_power
 	receiver.damage_received.emit(current_damage, direction, hit_type)
-	is_last_hit_successful = true
-
+	if current_state != state.JUMPKICK:
+		is_last_hit_successful = true
 func on_emit_collateral_damage(receiver: DamageReceiver) -> void:
 	if receiver != damage_receiver:
 		var direction := Vector2.LEFT if receiver.global_position.x < global_position.x else Vector2.RIGHT
@@ -338,3 +350,8 @@ func on_wall_hit(_wall: AnimatableBody2D) -> void:
 	current_state = state.FALL
 	height_speed = knockdown_intensity
 	velocity = -velocity/2.0
+
+func set_health(health: int, is_emitting_signal: bool = true) -> void:
+	current_health = clamp(health, 0, max_health)
+	if is_emitting_signal:
+		DamageManager.health_change.emit(type, current_health, max_health)

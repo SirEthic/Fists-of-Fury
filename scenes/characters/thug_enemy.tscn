@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dlrar4nflw1ta" path="res://assets/art/characters/enemy_thug.png" id="2_cggfk"]
 
 [node name="ThugEnemy" instance=ExtResource("1_qtn1n")]
+duration_appear = 0.0
 duration_between_melee_attacks = 1500
 duration_between_range_attacks = 2500
 damage = 3

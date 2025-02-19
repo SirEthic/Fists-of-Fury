@@ -20,5 +20,5 @@ func _process(_delta: float) -> void:
 	var progress := elapsed / duration_shot
 	var new_x : float = lerp(0.0, shot_distance, progress)
 	set_point_position(0, Vector2(new_x, -height))
-	if progress >=1:
+	if progress >= 1.0:
 		queue_free()
