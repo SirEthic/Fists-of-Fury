@@ -11,3 +11,4 @@ text = "100
 "
 script = ExtResource("2_e7bks")
 duration_score_update = 1000.0
+points_per_life = 1000

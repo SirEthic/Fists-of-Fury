@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dywgawugnvi73"]
+[gd_scene load_steps=10 format=3 uid="uid://dywgawugnvi73"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_fjdpj"]
 [ext_resource type="Texture2D" uid="uid://c64hjsy6r5icc" path="res://assets/art/ui/avatars/avatar-punk.png" id="1_qj8r0"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://brmmb8dl3feso" path="res://scenes/ui/score_indicator.tscn" id="6_okpxc"]
 [ext_resource type="PackedScene" uid="uid://260lf671lsav" path="res://scenes/ui/flickering_texture_rect.tscn" id="6_us2i1"]
 [ext_resource type="Texture2D" uid="uid://bwieiyefumh83" path="res://assets/art/ui/go-go-go.png" id="8_dp82m"]
+[ext_resource type="PackedScene" uid="uid://bxghougda2ke1" path="res://scenes/ui/stage_transition.tscn" id="9_3qfon"]
 
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_fjdpj")
 duration_healthbar_visible = 1000
 
@@ -81,6 +83,7 @@ offset_bottom = 0.0
 grow_vertical = 0
 
 [node name="ScoreIndicator" parent="UIContainer" instance=ExtResource("6_okpxc")]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 1.0
 offset_right = 38.0
@@ -100,5 +103,8 @@ texture = ExtResource("8_dp82m")
 stretch_mode = 2
 duration_flicker = 200
 total_flickers = 3
+
+[node name="StageTransition" parent="UIContainer" instance=ExtResource("9_3qfon")]
+layout_mode = 1
 
 [editable path="UIContainer/EnemyHealthbar"]

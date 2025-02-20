@@ -1,19 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://chfqfqeqgkc3d"]
 
-[ext_resource type="Theme" uid="uid://g13htot0avj8" path="res://gui_theme.tres" id="1_opuh3"]
-[ext_resource type="Script" path="res://scenes/ui/optrions_screen.gd" id="1_vcsn2"]
-[ext_resource type="PackedScene" uid="uid://c4ws0behqjtfs" path="res://scenes/ui/controls/range_picker.tscn" id="2_u0vfo"]
-[ext_resource type="PackedScene" uid="uid://bxoorrn3gpb4j" path="res://scenes/ui/controls/toggle_picker.tscn" id="3_2w7j1"]
-[ext_resource type="PackedScene" uid="uid://ce2pa55qub1mp" path="res://scenes/ui/controls/label_picker.tscn" id="4_0c8wa"]
+[ext_resource type="Script" path="res://scenes/ui/options_screen.gd" id="1_sgf5f"]
+[ext_resource type="Theme" uid="uid://g13htot0avj8" path="res://gui_theme.tres" id="2_6hso0"]
+[ext_resource type="PackedScene" uid="uid://c4ws0behqjtfs" path="res://scenes/ui/controls/range_picker.tscn" id="3_uhlxv"]
+[ext_resource type="PackedScene" uid="uid://bxoorrn3gpb4j" path="res://scenes/ui/controls/toggle_picker.tscn" id="4_imotp"]
+[ext_resource type="PackedScene" uid="uid://ce2pa55qub1mp" path="res://scenes/ui/controls/label_picker.tscn" id="5_k40vo"]
 
-[node name="OptrionsScreen" type="Control"]
+[node name="OptionsScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vcsn2")
+script = ExtResource("1_sgf5f")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -40,7 +40,7 @@ theme_override_constants/separation = 3
 
 [node name="OptionsLabel" type="Label" parent="Background/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_opuh3")
+theme = ExtResource("2_6hso0")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "OPTIONS"
 horizontal_alignment = 1
@@ -48,22 +48,22 @@ horizontal_alignment = 1
 [node name="Spacer" type="Control" parent="Background/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="MusicVolume" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("2_u0vfo")]
+[node name="MusicVolume" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("3_uhlxv")]
 layout_mode = 2
 text = "MUSIC"
 
-[node name="SoundVolume" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("2_u0vfo")]
+[node name="SoundVolume" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("3_uhlxv")]
 layout_mode = 2
 text = "SFX"
 
-[node name="ShakeToggle" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("3_2w7j1")]
+[node name="ShakeToggle" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("4_imotp")]
 layout_mode = 2
 text = "SHAKE"
 
 [node name="Spacer2" type="Control" parent="Background/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ReturnButton" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("4_0c8wa")]
+[node name="ReturnButton" parent="Background/MarginContainer/VBoxContainer" instance=ExtResource("5_k40vo")]
 layout_mode = 2
 alignment = 1
 text = "RETURN"

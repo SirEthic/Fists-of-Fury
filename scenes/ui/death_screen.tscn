@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkw2n6w8abrt6"]
+
+[ext_resource type="Script" path="res://scenes/ui/death_screen.gd" id="1_4ybgg"]
+[ext_resource type="Theme" uid="uid://g13htot0avj8" path="res://gui_theme.tres" id="1_45sk5"]
+
+[node name="DeathScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_4ybgg")
+countdown_start = 10
+
+[node name="Border" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Contents" type="ColorRect" parent="Border/MarginContainer"]
+layout_mode = 2
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/MarginContainer/Contents"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Border/MarginContainer/Contents/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_45sk5")
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+text = "RESPAWN?"
+horizontal_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="Border/MarginContainer/Contents/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_45sk5")
+text = "10
+"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

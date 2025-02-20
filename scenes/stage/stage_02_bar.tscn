@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://by7njc1tcqvse"]
+
+[ext_resource type="PackedScene" uid="uid://dbusdqd8xo3hf" path="res://scenes/stage/stage.tscn" id="1_bal3i"]
+[ext_resource type="Texture2D" uid="uid://dowxmjy1f3hda" path="res://assets/art/backgrounds/bar-background.png" id="2_xiggl"]
+[ext_resource type="PackedScene" uid="uid://daspntpdqlp1s" path="res://scenes/stage/checkpoint.tscn" id="3_wn3mn"]
+[ext_resource type="PackedScene" uid="uid://dwret1dcy84lg" path="res://scenes/characters/thug_enemy.tscn" id="4_tyvs0"]
+
+[node name="Stage-02-Bar" instance=ExtResource("1_bal3i")]
+music = 3
+
+[node name="MainBackground" parent="Backgrounds" index="0"]
+texture = ExtResource("2_xiggl")
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("3_wn3mn")]
+position = Vector2(70, 0)
+nb_simultaneous_enemies = 4
+
+[node name="ThugEnemy" parent="Checkpoints/Checkpoint/Enemies" index="0" instance=ExtResource("4_tyvs0")]
+position = Vector2(-12, 38)
+
+[node name="ThugEnemy2" parent="Checkpoints/Checkpoint/Enemies" index="1" instance=ExtResource("4_tyvs0")]
+position = Vector2(-14, 58)
+
+[node name="ThugEnemy3" parent="Checkpoints/Checkpoint/Enemies" index="2" instance=ExtResource("4_tyvs0")]
+position = Vector2(115, 39)
+
+[node name="ThugEnemy4" parent="Checkpoints/Checkpoint/Enemies" index="3" instance=ExtResource("4_tyvs0")]
+position = Vector2(113, 59)
+
+[node name="ThugEnemy5" parent="Checkpoints/Checkpoint/Enemies" index="4" instance=ExtResource("4_tyvs0")]
+position = Vector2(22, -6)
+
+[node name="ThugEnemy6" parent="Checkpoints/Checkpoint/Enemies" index="5" instance=ExtResource("4_tyvs0")]
+position = Vector2(78, -6)
+
+[node name="ThugEnemy7" parent="Checkpoints/Checkpoint/Enemies" index="6" instance=ExtResource("4_tyvs0")]
+position = Vector2(31, 97)
+
+[node name="ThugEnemy8" parent="Checkpoints/Checkpoint/Enemies" index="7" instance=ExtResource("4_tyvs0")]
+position = Vector2(89, 98)
+
+[node name="PlayerSpawnLocation" parent="." index="6"]
+position = Vector2(20, 40)
+
+[editable path="Checkpoints/Checkpoint"]

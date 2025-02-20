@@ -11,8 +11,9 @@ func _init() -> void:
 	DamageManager.heavy_blow_received.connect(on_heavy_blow_received.bind())
 
 func on_heavy_blow_received() -> void:
-	is_shaking = true
-	time_start_shaking = Time.get_ticks_msec()
+	if OptionsManager.is_screenshake_enabled:
+		is_shaking = true
+		time_start_shaking = Time.get_ticks_msec()
 
 func _process(_delta: float) -> void:
 	if is_shaking and (Time.get_ticks_msec() - time_start_shaking < duration_shake):
