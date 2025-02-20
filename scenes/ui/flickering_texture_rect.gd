@@ -29,4 +29,4 @@ func _process(_delta: float) -> void:
 				texture = image
 		else:
 			texture = null
-		time_start_last_flicker = Time.get_ticks_msec()	
+		time_start_last_flicker = Time.get_ticks_msec()

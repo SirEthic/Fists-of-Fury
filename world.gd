@@ -8,6 +8,7 @@ var is_camera_locked := false
 func _ready() -> void:
 	StageManager.checkpoint_start.connect(on_checkpoint_start.bind())
 	StageManager.checkpoint_complete.connect(on_checkpoint_complete.bind())
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 
 func _process(_delta: float) -> void:
