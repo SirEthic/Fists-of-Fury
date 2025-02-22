@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyrdixk4xk2s3"]
 
-[ext_resource type="Script" path="res://scenes/characters/character.gd" id="1_keae3"]
+[ext_resource type="Script" uid="uid://bjtc8kg2ukrep" path="res://scenes/characters/character.gd" id="1_keae3"]
 [ext_resource type="Texture2D" uid="uid://b7vgwkle3ntsy" path="res://assets/art/characters/shadow.png" id="2_gbjft"]
 [ext_resource type="PackedScene" uid="uid://b35ylebqwkkuw" path="res://scenes/colliders/damage_emitter.tscn" id="3_n6xds"]
 [ext_resource type="PackedScene" uid="uid://cyief2qac6at2" path="res://scenes/colliders/damage_receiver.tscn" id="4_qy531"]

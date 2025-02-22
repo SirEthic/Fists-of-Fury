@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://bnnbcl7agjd02"]
 
 [ext_resource type="PackedScene" uid="uid://cyrdixk4xk2s3" path="res://scenes/characters/character.tscn" id="1_0mh1t"]
-[ext_resource type="Script" path="res://scenes/characters/player.gd" id="2_a8x45"]
+[ext_resource type="Script" uid="uid://clmh654htw22b" path="res://scenes/characters/player.gd" id="2_a8x45"]
 [ext_resource type="Texture2D" uid="uid://c6n5csw0ooh7h" path="res://assets/art/characters/player.png" id="2_vowmt"]
 [ext_resource type="PackedScene" uid="uid://h7il5nw5e178" path="res://scenes/characters/enemy_slot.tscn" id="4_dhh65"]
 [ext_resource type="Texture2D" uid="uid://ctxl60wttsajo" path="res://assets/art/characters/player_knife.png" id="5_3fcda"]
@@ -875,23 +875,23 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_alur7"]
 _data = {
-"Fall": SubResource("Animation_7ax0t"),
-"Grounded": SubResource("Animation_jaf35"),
-"Hurt": SubResource("Animation_1c166"),
-"Idle": SubResource("Animation_5iqim"),
-"Jump": SubResource("Animation_4ro6e"),
-"JumpKick": SubResource("Animation_i1282"),
-"Kick": SubResource("Animation_mqhfj"),
-"Land": SubResource("Animation_cd6kr"),
-"Pickup": SubResource("Animation_p3q73"),
-"Punch": SubResource("Animation_0b8dg"),
-"Punch_Alt": SubResource("Animation_w0cci"),
-"RESET": SubResource("Animation_37o5k"),
-"RoundKick": SubResource("Animation_48il2"),
-"Shoot": SubResource("Animation_sbv50"),
-"Takeoff": SubResource("Animation_gviij"),
-"Throw": SubResource("Animation_biwup"),
-"Walk": SubResource("Animation_22xus")
+&"Fall": SubResource("Animation_7ax0t"),
+&"Grounded": SubResource("Animation_jaf35"),
+&"Hurt": SubResource("Animation_1c166"),
+&"Idle": SubResource("Animation_5iqim"),
+&"Jump": SubResource("Animation_4ro6e"),
+&"JumpKick": SubResource("Animation_i1282"),
+&"Kick": SubResource("Animation_mqhfj"),
+&"Land": SubResource("Animation_cd6kr"),
+&"Pickup": SubResource("Animation_p3q73"),
+&"Punch": SubResource("Animation_0b8dg"),
+&"Punch_Alt": SubResource("Animation_w0cci"),
+&"RESET": SubResource("Animation_37o5k"),
+&"RoundKick": SubResource("Animation_48il2"),
+&"Shoot": SubResource("Animation_sbv50"),
+&"Takeoff": SubResource("Animation_gviij"),
+&"Throw": SubResource("Animation_biwup"),
+&"Walk": SubResource("Animation_22xus")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_altn2"]
@@ -935,7 +935,7 @@ shape = SubResource("CapsuleShape2D_rdfum")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_alur7")
+&"": SubResource("AnimationLibrary_alur7")
 }
 autoplay = "Idle"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dg6njkaclxs6y"]
 
 [ext_resource type="AudioStream" uid="uid://d1iclrra8akah" path="res://assets/sfx/click.wav" id="1_7q8gp"]
-[ext_resource type="Script" path="res://utils/sound_manager.gd" id="1_tpggu"]
+[ext_resource type="Script" uid="uid://b8r1qaxanjmk" path="res://utils/sound_manager.gd" id="1_tpggu"]
 [ext_resource type="AudioStream" uid="uid://ck122pnx4emp2" path="res://assets/sfx/eat-food.wav" id="2_ef5ux"]
 [ext_resource type="AudioStream" uid="uid://0dg075nh8ugr" path="res://assets/sfx/gogogo.wav" id="3_6xot0"]
 [ext_resource type="AudioStream" uid="uid://bv4fuypcalqff" path="res://assets/sfx/grunt.wav" id="4_6qkw4"]

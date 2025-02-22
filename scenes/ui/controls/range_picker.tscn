@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c25pybrw6eql7" path="res://scenes/ui/controls/activable_control.tscn" id="1_ecsi3"]
 [ext_resource type="Texture2D" uid="uid://blgjhgthmkh5d" path="res://assets/art/ui/ui-tick-on.png" id="2_438g7"]
-[ext_resource type="Script" path="res://scenes/ui/controls/range_picker.gd" id="2_cejvq"]
+[ext_resource type="Script" uid="uid://chjjch03c7x3m" path="res://scenes/ui/controls/range_picker.gd" id="2_cejvq"]
 
 [node name="RangePicker" instance=ExtResource("1_ecsi3")]
 offset_right = 120.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b8ox3ointco4q"]
 
 [ext_resource type="PackedScene" uid="uid://cyrdixk4xk2s3" path="res://scenes/characters/character.tscn" id="1_axv8k"]
-[ext_resource type="Script" path="res://scenes/characters/igor_boss.gd" id="2_b5gmr"]
+[ext_resource type="Script" uid="uid://be3brmf2wc21s" path="res://scenes/characters/igor_boss.gd" id="2_b5gmr"]
 [ext_resource type="Texture2D" uid="uid://m1v041fuv8ff" path="res://assets/art/characters/enemy_boss.png" id="2_rwykt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ys5k0"]
@@ -164,14 +164,14 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f4yno"]
 _data = {
-"Fall": SubResource("Animation_aewvo"),
-"Fly": SubResource("Animation_bfvvk"),
-"Grounded": SubResource("Animation_vhga8"),
-"Hurt": SubResource("Animation_63vw2"),
-"Idle": SubResource("Animation_hkqel"),
-"RESET": SubResource("Animation_2vr8g"),
-"Recover": SubResource("Animation_oldpj"),
-"Walk": SubResource("Animation_yjsfk")
+&"Fall": SubResource("Animation_aewvo"),
+&"Fly": SubResource("Animation_bfvvk"),
+&"Grounded": SubResource("Animation_vhga8"),
+&"Hurt": SubResource("Animation_63vw2"),
+&"Idle": SubResource("Animation_hkqel"),
+&"RESET": SubResource("Animation_2vr8g"),
+&"Recover": SubResource("Animation_oldpj"),
+&"Walk": SubResource("Animation_yjsfk")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfi5p"]

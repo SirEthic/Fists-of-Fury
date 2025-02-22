@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dywgawugnvi73"]
 
-[ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_fjdpj"]
+[ext_resource type="Script" uid="uid://b6bgdrqhfiye6" path="res://scenes/ui/ui.gd" id="1_fjdpj"]
 [ext_resource type="Texture2D" uid="uid://c64hjsy6r5icc" path="res://assets/art/ui/avatars/avatar-punk.png" id="1_qj8r0"]
 [ext_resource type="Texture2D" uid="uid://801hyimf24yi" path="res://assets/art/ui/avatars/avatar-player.png" id="2_mj2yf"]
 [ext_resource type="PackedScene" uid="uid://ddnarkqyswnj0" path="res://scenes/ui/healthbar.tscn" id="3_ehlm8"]

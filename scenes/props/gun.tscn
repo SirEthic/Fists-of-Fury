@@ -76,10 +76,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g7rsp"]
 _data = {
-"Fall": SubResource("Animation_abybd"),
-"Fly": SubResource("Animation_egd15"),
-"Grounded": SubResource("Animation_ci66g"),
-"RESET": SubResource("Animation_rerkp")
+&"Fall": SubResource("Animation_abybd"),
+&"Fly": SubResource("Animation_egd15"),
+&"Grounded": SubResource("Animation_ci66g"),
+&"RESET": SubResource("Animation_rerkp")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lv2r"]

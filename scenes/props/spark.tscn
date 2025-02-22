@@ -50,8 +50,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5uxfl"]
 _data = {
-"Idle": SubResource("Animation_uv1n3"),
-"RESET": SubResource("Animation_ao3hk")
+&"Idle": SubResource("Animation_uv1n3"),
+&"RESET": SubResource("Animation_ao3hk")
 }
 
 [node name="Spark" type="Node2D"]

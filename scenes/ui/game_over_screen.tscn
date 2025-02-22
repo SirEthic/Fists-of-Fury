@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://4j74rtdffvej"]
 
-[ext_resource type="Script" path="res://scenes/ui/game_over_screen.gd" id="1_gypdi"]
+[ext_resource type="Script" uid="uid://2jojlckhdfpr" path="res://scenes/ui/game_over_screen.gd" id="1_gypdi"]
 [ext_resource type="Theme" uid="uid://g13htot0avj8" path="res://gui_theme.tres" id="2_ox5k1"]
 [ext_resource type="PackedScene" uid="uid://brmmb8dl3feso" path="res://scenes/ui/score_indicator.tscn" id="3_7fsdo"]
 

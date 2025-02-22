@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cyief2qac6at2"]
 
-[ext_resource type="Script" path="res://scenes/colliders/damage_receiver.gd" id="1_rlqra"]
+[ext_resource type="Script" uid="uid://cyos10plwy5mw" path="res://scenes/colliders/damage_receiver.gd" id="1_rlqra"]
 
 [node name="DamageReceiver" type="Area2D"]
 collision_layer = 0

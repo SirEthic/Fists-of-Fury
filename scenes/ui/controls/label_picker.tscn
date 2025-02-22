@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce2pa55qub1mp"]
 
 [ext_resource type="PackedScene" uid="uid://c25pybrw6eql7" path="res://scenes/ui/controls/activable_control.tscn" id="1_ho7vm"]
-[ext_resource type="Script" path="res://scenes/ui/controls/label_picker.gd" id="2_1crm2"]
+[ext_resource type="Script" uid="uid://ci8p2e15sp85n" path="res://scenes/ui/controls/label_picker.gd" id="2_1crm2"]
 
 [node name="LabelPicker" instance=ExtResource("1_ho7vm")]
 script = ExtResource("2_1crm2")

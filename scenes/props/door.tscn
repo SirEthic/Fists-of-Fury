@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf1wvur6l820i"]
 
-[ext_resource type="Script" path="res://scenes/props/door.gd" id="1_5fdk6"]
+[ext_resource type="Script" uid="uid://cja8ikq1p706w" path="res://scenes/props/door.gd" id="1_5fdk6"]
 [ext_resource type="Texture2D" uid="uid://c4m5e4f55l4kp" path="res://assets/art/props/garage-door-closed.png" id="1_w1u60"]
 
 [node name="Door" type="Node2D"]

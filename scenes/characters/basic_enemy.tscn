@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyrdixk4xk2s3" path="res://scenes/characters/character.tscn" id="1_jq1ap"]
 [ext_resource type="Texture2D" uid="uid://dc0lscub24mc4" path="res://assets/art/characters/enemy_punk.png" id="2_bqgks"]
-[ext_resource type="Script" path="res://scenes/characters/basic_enemy.gd" id="2_j37qh"]
+[ext_resource type="Script" uid="uid://dbxnc68ts4loo" path="res://scenes/characters/basic_enemy.gd" id="2_j37qh"]
 [ext_resource type="Texture2D" uid="uid://c4nh7bcki2mp5" path="res://assets/art/characters/enemy_knife.png" id="4_wbiya"]
 [ext_resource type="Texture2D" uid="uid://vo0427hiy0o4" path="res://assets/art/characters/enemy_gun.png" id="5_dff0a"]
 
@@ -646,19 +646,19 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g86h6"]
 _data = {
-"Fall": SubResource("Animation_utujj"),
-"Fly": SubResource("Animation_fbltu"),
-"Grounded": SubResource("Animation_87sob"),
-"Hurt": SubResource("Animation_o2lhb"),
-"Idle": SubResource("Animation_f2k17"),
-"Land": SubResource("Animation_10h8j"),
-"Pickup": SubResource("Animation_t1l88"),
-"Punch": SubResource("Animation_gkfrq"),
-"Punch_Alt": SubResource("Animation_3hjfv"),
-"RESET": SubResource("Animation_t3imi"),
-"Shoot": SubResource("Animation_hl28j"),
-"Throw": SubResource("Animation_kwsq2"),
-"Walk": SubResource("Animation_fp7j0")
+&"Fall": SubResource("Animation_utujj"),
+&"Fly": SubResource("Animation_fbltu"),
+&"Grounded": SubResource("Animation_87sob"),
+&"Hurt": SubResource("Animation_o2lhb"),
+&"Idle": SubResource("Animation_f2k17"),
+&"Land": SubResource("Animation_10h8j"),
+&"Pickup": SubResource("Animation_t1l88"),
+&"Punch": SubResource("Animation_gkfrq"),
+&"Punch_Alt": SubResource("Animation_3hjfv"),
+&"RESET": SubResource("Animation_t3imi"),
+&"Shoot": SubResource("Animation_hl28j"),
+&"Throw": SubResource("Animation_kwsq2"),
+&"Walk": SubResource("Animation_fp7j0")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcdq1"]

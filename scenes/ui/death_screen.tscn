@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkw2n6w8abrt6"]
 
-[ext_resource type="Script" path="res://scenes/ui/death_screen.gd" id="1_4ybgg"]
+[ext_resource type="Script" uid="uid://d4jdioky00qyj" path="res://scenes/ui/death_screen.gd" id="1_4ybgg"]
 [ext_resource type="Theme" uid="uid://g13htot0avj8" path="res://gui_theme.tres" id="1_45sk5"]
 
 [node name="DeathScreen" type="MarginContainer"]

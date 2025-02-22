@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c25pybrw6eql7" path="res://scenes/ui/controls/activable_control.tscn" id="1_04df6"]
 [ext_resource type="Theme" uid="uid://g13htot0avj8" path="res://gui_theme.tres" id="2_e78kh"]
-[ext_resource type="Script" path="res://scenes/ui/controls/toggle_picker.gd" id="2_yjmpl"]
+[ext_resource type="Script" uid="uid://fl0llr0q2wuk" path="res://scenes/ui/controls/toggle_picker.gd" id="2_yjmpl"]
 
 [node name="TogglePicker" instance=ExtResource("1_04df6")]
 script = ExtResource("2_yjmpl")

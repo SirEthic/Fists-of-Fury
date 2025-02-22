@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddp3jpk1jjvsv"]
 
-[ext_resource type="Script" path="res://scenes/props/collectible.gd" id="1_7dpsp"]
+[ext_resource type="Script" uid="uid://cre018tg22tcu" path="res://scenes/props/collectible.gd" id="1_7dpsp"]
 [ext_resource type="PackedScene" uid="uid://b35ylebqwkkuw" path="res://scenes/colliders/damage_emitter.tscn" id="1_h4cds"]
 [ext_resource type="Texture2D" uid="uid://br38w08g2x5g0" path="res://assets/art/props/prop-shadow.png" id="2_oc0fy"]
 

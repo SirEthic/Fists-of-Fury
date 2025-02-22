@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxghougda2ke1"]
 
-[ext_resource type="Script" path="res://scenes/ui/stage_transition.gd" id="1_dyr2n"]
+[ext_resource type="Script" uid="uid://cmgicui4ldr15" path="res://scenes/ui/stage_transition.gd" id="1_dyr2n"]
 [ext_resource type="Texture2D" uid="uid://des3oqi0i2eek" path="res://assets/art/ui/screen-transition.png" id="1_hfnc5"]
 
 [sub_resource type="Animation" id="Animation_lae17"]
@@ -117,11 +117,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lrhmt"]
 _data = {
-"End_Transition": SubResource("Animation_lae17"),
-"Idle": SubResource("Animation_d4y5j"),
-"Interim": SubResource("Animation_a7svs"),
-"RESET": SubResource("Animation_cgsg6"),
-"Start_Transition": SubResource("Animation_wbf0m")
+&"End_Transition": SubResource("Animation_lae17"),
+&"Idle": SubResource("Animation_d4y5j"),
+&"Interim": SubResource("Animation_a7svs"),
+&"RESET": SubResource("Animation_cgsg6"),
+&"Start_Transition": SubResource("Animation_wbf0m")
 }
 
 [node name="StageTransition" type="Control"]
@@ -143,6 +143,6 @@ texture = ExtResource("1_hfnc5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lrhmt")
+&"": SubResource("AnimationLibrary_lrhmt")
 }
 autoplay = "Interim"

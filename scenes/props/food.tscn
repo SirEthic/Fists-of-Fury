@@ -58,9 +58,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yncna"]
 _data = {
-"Fall": SubResource("Animation_hfgkg"),
-"Grounded": SubResource("Animation_vni5a"),
-"RESET": SubResource("Animation_5bwum")
+&"Fall": SubResource("Animation_hfgkg"),
+&"Grounded": SubResource("Animation_vni5a"),
+&"RESET": SubResource("Animation_5bwum")
 }
 
 [node name="Food" instance=ExtResource("1_4rojj")]
