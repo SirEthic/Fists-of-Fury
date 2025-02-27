@@ -296,8 +296,6 @@ func on_pickup_complete() -> void:
 func on_land_complete() -> void:
 	current_state = state.IDLE
 
-
-
 func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver.HitType) -> void:
 	if can_get_hurt():
 		attack_combo_index = 0

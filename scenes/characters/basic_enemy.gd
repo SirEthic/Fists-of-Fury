@@ -34,7 +34,6 @@ func process_appear() -> void:
 		else:
 			modulate.a = 1
 			current_state = state.IDLE
-			
 
 func handle_input() -> void:
 	if player != null and can_move():
@@ -113,7 +112,6 @@ func handle_prep_attack() -> void:
 		current_state = state.ATTACK
 		time_since_last_melee_attack = Time.get_ticks_msec()
 		anim_attacks.shuffle()
-	
 
 func is_player_within_range() -> bool:
 	return (player_slot.global_position - global_position).length() < 1
@@ -135,6 +133,10 @@ func set_heading() -> void:
 		heading = Vector2.LEFT
 	else:
 		heading = Vector2.RIGHT
+
+func on_action_complete() -> void:
+	super.on_action_complete()
+	is_last_hit_successful = false 
 
 func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver.HitType ) -> void:
 	super.on_receive_damage(amount, direction, hit_type)
