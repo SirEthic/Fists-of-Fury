@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dywgawugnvi73"]
+[gd_scene load_steps=15 format=3 uid="uid://dywgawugnvi73"]
 
 [ext_resource type="Script" uid="uid://b6bgdrqhfiye6" path="res://scenes/ui/ui.gd" id="1_fjdpj"]
 [ext_resource type="Texture2D" uid="uid://c64hjsy6r5icc" path="res://assets/art/ui/avatars/avatar-punk.png" id="1_qj8r0"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://260lf671lsav" path="res://scenes/ui/flickering_texture_rect.tscn" id="6_us2i1"]
 [ext_resource type="Texture2D" uid="uid://bwieiyefumh83" path="res://assets/art/ui/go-go-go.png" id="8_dp82m"]
 [ext_resource type="PackedScene" uid="uid://bxghougda2ke1" path="res://scenes/ui/stage_transition.tscn" id="9_3qfon"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="10_y220t"]
+[ext_resource type="Texture2D" uid="uid://ce0uohdawj0bj" path="res://assets/Buttons/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/Digital Buttons/ABXY/button_xbox_digital_a_2.png" id="11_hkgbh"]
+[ext_resource type="Texture2D" uid="uid://dvvpsrghmw174" path="res://assets/Buttons/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/Digital Buttons/ABXY/button_xbox_digital_a_4.png" id="12_tiigj"]
+[ext_resource type="Texture2D" uid="uid://d2c7vhqnuvpd2" path="res://assets/Buttons/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/Digital Buttons/ABXY/button_xbox_digital_x_1.png" id="13_52cr1"]
+[ext_resource type="Texture2D" uid="uid://cj5cqsoim0p4r" path="res://assets/Buttons/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/Digital Buttons/ABXY/button_xbox_digital_x_4.png" id="14_f6xmi"]
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -106,5 +111,38 @@ total_flickers = 3
 
 [node name="StageTransition" parent="UIContainer" instance=ExtResource("9_3qfon")]
 layout_mode = 1
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("10_y220t")]
+offset_left = 5.0
+offset_top = -31.0
+offset_right = 305.0
+offset_bottom = 269.0
+scale = Vector2(0.075, 0.075)
+clampzone_size = 15.0
+visibility_mode = 1
+action_left = "Left"
+action_right = "Right"
+action_up = "Up"
+action_down = "Down"
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2(78, 49)
+scale = Vector2(0.02, 0.02)
+texture_normal = ExtResource("11_hkgbh")
+texture_pressed = ExtResource("12_tiigj")
+action = "Jump"
+visibility_mode = 1
+
+[node name="Attack" type="TouchScreenButton" parent="."]
+position = Vector2(66, 39)
+scale = Vector2(0.02, 0.02)
+texture_normal = ExtResource("13_52cr1")
+texture_pressed = ExtResource("14_f6xmi")
+action = "Attack"
+visibility_mode = 1
 
 [editable path="UIContainer/EnemyHealthbar"]

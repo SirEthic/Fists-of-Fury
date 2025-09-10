@@ -348,6 +348,7 @@ func on_wall_hit(_wall: AnimatableBody2D) -> void:
 	current_state = state.FALL
 	height_speed = knockdown_intensity
 	velocity = -velocity/2.0
+	
 
 func set_health(health: int, is_emitting_signal: bool = true) -> void:
 	current_health = clamp(health, 0, max_health)

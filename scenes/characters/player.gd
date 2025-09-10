@@ -9,7 +9,6 @@ const REVIVE_HEIGHT := 80
 
 var time_since_last_successful_attack := Time.get_ticks_msec()
 
-
 func _ready() -> void:
 	super._ready()
 	anim_attacks = ["Punch", "Punch_Alt", "Kick", "RoundKick"]
