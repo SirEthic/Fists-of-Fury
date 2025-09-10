@@ -130,16 +130,16 @@ action_up = "Up"
 action_down = "Down"
 
 [node name="Jump" type="TouchScreenButton" parent="."]
-position = Vector2(78, 49)
-scale = Vector2(0.02, 0.02)
+position = Vector2(78, 47)
+scale = Vector2(0.0291667, 0.0283333)
 texture_normal = ExtResource("11_hkgbh")
 texture_pressed = ExtResource("12_tiigj")
 action = "Jump"
 visibility_mode = 1
 
 [node name="Attack" type="TouchScreenButton" parent="."]
-position = Vector2(66, 39)
-scale = Vector2(0.02, 0.02)
+position = Vector2(63, 35)
+scale = Vector2(0.0291667, 0.0283333)
 texture_normal = ExtResource("13_52cr1")
 texture_pressed = ExtResource("14_f6xmi")
 action = "Attack"
